@@ -21,9 +21,16 @@
  * \param encrypt Flag indicating the mode in which the cipher should run (encrypt = true, decrypt = false)
  * \return true if the arguments could be successfully parsed, false otherwise
  */
-bool processCommandLine(const std::vector<std::string>& cmdLineArgs,
-                        bool& helpRequested, bool& versionRequested,
-                        std::string& inputFile, std::string& outputFile,
-                        std::string& cipherKey, bool& encrypt);
+
+struct ProgramSettings {
+    bool helpRequested;
+    bool versionRequested;
+    std::string inputFile;
+    std::string outputFile;
+    std::string cipherKey;
+    bool encrypt = true;
+};
+
+bool processCommandLine(const std::vector<std::string>& cmdLineArgs, ProgramSettings& settings);
 
 #endif    // MPAGSCIPHER_PROCESSCOMMANDLINE_HPP
